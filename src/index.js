@@ -67,7 +67,7 @@ function ngDialog ($document, $compile, $rootScope, $controller, $timeout, $q) {
       '</div>' +
       '<div class="dialog-footer">' +
       '<button class="button" ng-click="decline()" translate>cancel</button>' +
-      '<button class="button" ng-click="accept()" translate>submit</button>' +
+      '<button class="button" ng-click="accept()" translate>confirm</button>' +
       '</div>' +
       '</div>' +
       '</div>'
