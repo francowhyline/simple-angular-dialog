@@ -63,11 +63,11 @@ function ngDialog ($document, $compile, $rootScope, $controller, $timeout, $q) {
       '<div class="dialog-container">' +
       '<div class="dialog" id="confirm">' +
       '<div class="dialog-body text-center dialog-confirm">' +
-      '<div class="dialog-inner">' + text + '</div>' +
+      '<div class="dialog-inner" translate>' + text + '</div>' +
       '</div>' +
       '<div class="dialog-footer">' +
-      '<button class="button" ng-click="decline()">Cancel</button>' +
-      '<button class="button" ng-click="accept()">Submit</button>' +
+      '<button class="button" ng-click="decline()" translate>cancel</button>' +
+      '<button class="button" ng-click="accept()" translate>submit</button>' +
       '</div>' +
       '</div>' +
       '</div>'
