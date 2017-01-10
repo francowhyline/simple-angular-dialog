@@ -6,11 +6,11 @@
   "style": "./src/simple-angular-dialog.css",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hanford/simple-angular-dialog.git"
+    "url": "https://github.com/chonz0/simple-angular-dialog.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hanford/simple-angular-dialog/issues"
+    "url": "https://github.com/chonz0/simple-angular-dialog/issues"
   },
   "keywords": [
     "angular",
