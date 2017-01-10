@@ -112,3 +112,8 @@
   align-items: center;
   padding: 8px;
 }
+
+.dialog-inner {
+  display:flex;
+  display:-webkit-flex;
+}

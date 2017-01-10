@@ -63,7 +63,7 @@ function ngDialog ($document, $compile, $rootScope, $controller, $timeout, $q) {
       '<div class="dialog-container">' +
       '<div class="dialog" id="confirm">' +
       '<div class="dialog-body text-center dialog-confirm">' +
-      '<div style="display:flex;display:-webkit-flex;">' + text + '</div>' +
+      '<div class="dialog-inner">' + text + '</div>' +
       '</div>' +
       '<div class="dialog-footer">' +
       '<button class="button" ng-click="decline()">Cancel</button>' +
