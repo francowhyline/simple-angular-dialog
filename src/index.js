@@ -65,7 +65,7 @@ function ngDialog ($document, $compile, $rootScope, $controller, $timeout, $q) {
       '<div class="dialog-header">' +
       '<h2 translate>this can not be undone</h2>' +
       '</div>' +
-      '<div class="dialog-body text-center dialog-confirm">' +
+      '<div class="dialog-body dialog-confirm">' +
       '<div class="dialog-inner" translate>' + text + '</div>' +
       '</div>' +
       '<div class="dialog-footer">' +
