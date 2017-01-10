@@ -2,17 +2,17 @@ var extend = require('xtend')
 var angular = require('angular')
 
 module.exports = angular
-  .module('simple-angular-dialog', [])
-  .factory('dialog', ngDialog)
-  .name
+.module('simple-angular-dialog', [])
+.factory('dialog', ngDialog)
+.name
 
 ngDialog.$inject = [
-  '$document',
-  '$compile',
-  '$rootScope',
-  '$controller',
-  '$timeout',
-  '$q'
+'$document',
+'$compile',
+'$rootScope',
+'$controller',
+'$timeout',
+'$q'
 ]
 
 function ngDialog ($document, $compile, $rootScope, $controller, $timeout, $q) {
@@ -60,18 +60,18 @@ function ngDialog ($document, $compile, $rootScope, $controller, $timeout, $q) {
     deferred = $q.defer()
 
     var confirmModal = angular.element(
-        '<div class="dialog-container">' +
-         '<div class="dialog" id="confirm">' +
-           '<div class="dialog-body text-center dialog-confirm">' +
-             '<div style="display:flex;display:-webkit-flex;">' + text + '</div>' +
-           '</div>' +
-           '<div class="dialog-footer">' +
-             '<button class="button" ng-click="decline()">Cancel</button>' +
-             '<button class="button" ng-click="accept()">Submit</button>' +
-           '</div>' +
-         '</div>' +
-       '</div>'
-    )
+      '<div class="dialog-container">' +
+      '<div class="dialog" id="confirm">' +
+      '<div class="dialog-body text-center dialog-confirm">' +
+      '<div style="display:flex;display:-webkit-flex;">' + text + '</div>' +
+      '</div>' +
+      '<div class="dialog-footer">' +
+      '<button class="button" ng-click="decline()">Cancel</button>' +
+      '<button class="button" ng-click="accept()">Submit</button>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
+      )
 
     var scope = $rootScope.$new()
 
