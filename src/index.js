@@ -62,12 +62,15 @@ function ngDialog ($document, $compile, $rootScope, $controller, $timeout, $q) {
     var confirmModal = angular.element(
       '<div class="dialog-container">' +
       '<div class="dialog" id="confirm">' +
+      '<div class="dialog-header">' +
+      '<div class="dialog-inner" translate>this can not be undone</div>' +
+      '</div>' +
       '<div class="dialog-body text-center dialog-confirm">' +
       '<div class="dialog-inner" translate>' + text + '</div>' +
       '</div>' +
       '<div class="dialog-footer">' +
-      '<button class="button" ng-click="decline()" translate>cancel</button>' +
-      '<button class="button" ng-click="accept()" translate>confirm</button>' +
+      '<a class="button button-style" ng-click="decline()" translate>cancel</a>' +
+      '<a class="button button-style" ng-click="accept()" translate>confirm</a>' +
       '</div>' +
       '</div>' +
       '</div>'
