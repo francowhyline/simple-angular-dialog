@@ -188,7 +188,7 @@ function ngDialog ($document, $compile, $rootScope, $controller, $timeout, $q) {
 
     var reasonModal = angular.element(
       '<div class="dialog-container">' +
-      '<div class="dialog" id="confirm">' +
+      '<div class="dialog" id="reason">' +
       '<div class="dialog-header">' +
       '<h2 translate>this can not be undone</h2>' +
       '</div>' +
@@ -230,7 +230,7 @@ function ngDialog ($document, $compile, $rootScope, $controller, $timeout, $q) {
 
     $timeout(function () {
       $timeout(function () {
-        document.querySelector('#confirm').classList.add('show-dialog')
+        document.querySelector('#reason').classList.add('show-dialog')
       }, 200)
       reasonModal.addClass('fadeIn')
     }, 0)
