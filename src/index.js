@@ -33,7 +33,8 @@ function ngDialog ($document, $compile, $rootScope, $controller, $timeout, $q) {
     show: show,
     cancel: cancel,
     submit: submit,
-    confirm: confirm
+    confirm: confirm,
+    reason: reason
   }
 
   function submit (data) {
@@ -177,6 +178,63 @@ function ngDialog ($document, $compile, $rootScope, $controller, $timeout, $q) {
         }
       }, 200)
       modal.addClass('fadeIn')
+    }, 0)
+
+    return deferred.promise
+  }
+
+  function reason(info) {
+    deferred = $q.defer()
+
+    var reasonModal = angular.element(
+      '<div class="dialog-container">' +
+      '<div class="dialog" id="reason">' +
+      '<div class="dialog-header">' +
+      '<h2 translate>this can not be undone</h2>' +
+      '</div>' +
+      '<div class="dialog-body dialog-reason">' +
+      '<div class="dialog-inner">' +
+      '<div><span translate>add reason</span>:</div>' +
+      '<textarea class="reason-text form-control" name="reasonText" id="reasonText" rows="4" maxlength="200" ng-model="reason" autofocus></textarea>' +
+      '<div class="alert alert-info results-alert" ng-if="info.length">{{info}}</div>' +
+      '</div>' +
+      '</div>' +
+      '<div class="dialog-footer">' +
+      '<a class="button button-style" ng-click="cancel()" translate>cancel</a>' +
+      '<a class="button button-style reason-button" ng-click="save()" ng-disabled="reason.length < 2 || reason.length > 200" translate>confirm</a>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
+    )
+
+    var scope = $rootScope.$new()
+
+    scope.info = info
+
+    scope.reason = ''
+
+    scope.cancel = function () {
+      reasonModal.remove()
+      return deferred.reject()
+    }
+
+    scope.save = function () {
+      if (scope.reason.length > 1 && scope.reason.length <= 200) {
+        reasonModal.remove()
+        return deferred.resolve(scope.reason)
+      }
+    }
+
+    $compile(reasonModal)(scope)
+
+    // Attach compiled modal to DOM
+    body.append(reasonModal)
+
+    $timeout(function () {
+      $timeout(function () {
+        document.querySelector('#reason').classList.add('show-dialog')
+      }, 200)
+      reasonModal.addClass('fadeIn')
     }, 0)
 
     return deferred.promise
