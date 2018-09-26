@@ -201,7 +201,7 @@ function ngDialog ($document, $compile, $rootScope, $controller, $timeout, $q) {
       '</div>' +
       '<div class="dialog-footer">' +
       '<a class="button button-style" ng-click="cancel()" translate>cancel</a>' +
-      '<a class="button button-style reason-button" ng-click="save()" ng-disabled="reason.length < 2" translate>confirm</a>' +
+      '<a class="button button-style reason-button" ng-click="save()" ng-disabled="reason.length < 2 || reason.length > 200" translate>confirm</a>' +
       '</div>' +
       '</div>' +
       '</div>'
@@ -219,7 +219,7 @@ function ngDialog ($document, $compile, $rootScope, $controller, $timeout, $q) {
     }
 
     scope.save = function () {
-      if (scope.reason.length > 1) {
+      if (scope.reason.length > 1 && scope.reason.length <= 200) {
         reasonModal.remove()
         return deferred.resolve(scope.reason)
       }
