@@ -6,7 +6,7 @@
 
 [Live Demo!](https://hanford.github.io/simple-angular-dialog)
 
-This is a super easy, small library for creating dynamic dialogs with angularjs. Calling ```dialog.show``` or ```dialog.confirm``` creates a promise, which is either resolved or rejected.
+This is a super easy, small library for creating dynamic dialogs with angularjs. Calling ```dialog.show```, ```dialog.confirm``` or ```dialog.reason``` creates a promise, which is either resolved or rejected.
 
 [![NPM][dialog-icon]][dialog-url]
 
@@ -77,6 +77,8 @@ dialog.show({
  })
 
 dialog.confirm('Confirm Text')
+
+dialog.reason('This is info text')
 ```  
 
 
