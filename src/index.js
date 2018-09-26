@@ -196,7 +196,7 @@ function ngDialog ($document, $compile, $rootScope, $controller, $timeout, $q) {
       '<div class="dialog-inner">' +
       '<div><span translate>add reason</span>:</div>' +
       '<textarea class="reason-text form-control" name="reasonText" id="reasonText" rows="4" maxlength="200" ng-model="reason" autofocus></textarea>' +
-      '<div class="alert alert-info results-alert" ng-if="info.length">' + info + '</div>' +
+      '<div class="alert alert-info results-alert" ng-if="info.length">{{info}}</div>' +
       '</div>' +
       '</div>' +
       '<div class="dialog-footer">' +
@@ -208,6 +208,8 @@ function ngDialog ($document, $compile, $rootScope, $controller, $timeout, $q) {
     )
 
     var scope = $rootScope.$new()
+
+    scope.info = info
 
     scope.reason = ''
 
