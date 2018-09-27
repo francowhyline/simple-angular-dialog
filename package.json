@@ -1,5 +1,5 @@
 {
-  "name": "simple-angular-dialog",
+  "name": "angular-dialog",
   "version": "4.0.0",
   "description": "Angular factory for creating dialogs",
   "main": "./src",
