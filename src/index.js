@@ -34,7 +34,8 @@ function ngDialog ($document, $compile, $rootScope, $controller, $timeout, $q) {
     cancel: cancel,
     submit: submit,
     confirm: confirm,
-    reason: reason
+    reason: reason,
+    alert: alert
   }
 
   function submit (data) {
@@ -55,6 +56,48 @@ function ngDialog ($document, $compile, $rootScope, $controller, $timeout, $q) {
     }
 
     return deferred.reject('Canceled')
+  }
+
+  function alert (text, title) {
+    deferred = $q.defer()
+    title = title || 'this can not be undone';
+
+    var alertModal = angular.element(
+      '<div class="dialog-container">' +
+      '<div class="dialog" id="dialog-alert">' +
+      '<div class="dialog-header">' +
+      '<h2 translate>' + title + '</h2>' +
+      '</div>' +
+      '<div class="dialog-body dialog-confirm">' +
+      '<div class="dialog-inner" translate>' + text + '</div>' +
+      '</div>' +
+      '<div class="dialog-footer">' +
+      '<a class="button button-style" ng-click="accept()" translate>confirm</a>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
+      )
+
+    var scope = $rootScope.$new()
+
+    scope.accept = function () {
+      alertModal.remove()
+      return deferred.resolve()
+    }
+
+    $compile(alertModal)(scope)
+
+    // Attach compiled modal to DOM
+    body.append(alertModal)
+
+    $timeout(function () {
+      $timeout(function () {
+        document.querySelector('#dialog-alert').classList.add('show-dialog')
+      }, 200)
+      alertModal.addClass('fadeIn')
+    }, 0)
+
+    return deferred.promise
   }
 
   function confirm (text) {
